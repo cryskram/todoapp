@@ -9,3 +9,12 @@ datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
+
+model Todo {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?  @default("No Description")
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
